@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>AI Pneumonia Detection System</title>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"/>
+
+    <!-- CSS -->
+    <link rel="stylesheet"
+        href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+    <!-- ===================================== -->
+    <!-- Animated Background -->
+    <!-- ===================================== -->
+
+    <div class="bg-grid"></div>
+
+    <div class="floating-icons">
+        <i class="fas fa-heartbeat icon-float"></i>
+        <i class="fas fa-stethoscope icon-float"></i>
+        <i class="fas fa-lungs icon-float"></i>
+        <i class="fas fa-hospital icon-float"></i>
+    </div>
+
+    <!-- ===================================== -->
+    <!-- Navbar -->
+    <!-- ===================================== -->
+
+    <nav class="navbar" id="navbar">
+
+        <div class="container nav-container">
+
+            <div class="logo">
+
+                <div class="logo-icon">
+                    <i class="fas fa-lungs"></i>
+                </div>
+
+                <div class="logo-text">
+                    AI Pneumonia Detector
+                </div>
+
+            </div>
+
+            <ul class="nav-links" id="navLinks">
+
+                <li>
+                    <a href="#hero" class="nav-link active">
+                        Home
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#upload" class="nav-link">
+                        Upload
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#pipeline" class="nav-link">
+                        Pipeline
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#results" class="nav-link">
+                        Results
+                    </a>
+                </li>
+
+            </ul>
+
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+
+        </div>
+
+    </nav>
+
+    <!-- ===================================== -->
+    <!-- HERO SECTION -->
+    <!-- ===================================== -->
+
+    <section class="hero" id="hero">
+
+        <div class="container">
+
+            <div class="hero-content">
+
+                <div class="hero-badge">
+                    <i class="fas fa-sparkles"></i>
+                    Explainable AI Healthcare
+                </div>
+
+                <h1 class="hero-title">
+
+                    AI Pneumonia
+                    <span>Detection System</span>
+
+                </h1>
+
+                <p class="hero-subtitle">
+
+                    Deep Learning powered Chest X-Ray Analysis
+                    with Explainable AI Visualization using
+                    ResNet18 and Grad-CAM.
+
+                </p>
+
+                <div class="hero-buttons">
+
+                    <a href="#upload"
+                        class="btn btn-primary">
+
+                        Analyze X-Ray
+
+                    </a>
+
+                    <a href="#pipeline"
+                        class="btn btn-secondary">
+
+                        View Pipeline
+
+                    </a>
+
+                </div>
+
+                <!-- Statistics -->
+
+                <div class="stats-grid">
+
+                    <div class="stat-card glass">
+
+                        <h3>ResNet18</h3>
+                        <p>Deep Learning Model</p>
+
+                    </div>
+
+                    <div class="stat-card glass">
+
+                        <h3>Grad-CAM</h3>
+                        <p>Explainable AI</p>
+
+                    </div>
+
+                    <div class="stat-card glass">
+
+                        <h3>Real-Time</h3>
+                        <p>Prediction Engine</p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- ===================================== -->
+    <!-- Upload Section -->
+    <!-- ===================================== -->
+
+    <section class="upload-section" id="upload">
+
+        <div class="container">
+
+            <div class="section-header">
+
+                <span class="section-tag">
+                    AI Analysis
+                </span>
+
+                <h2>
+                    Upload Chest X-Ray
+                </h2>
+
+                <p>
+                    Upload a chest X-ray image to detect
+                    pneumonia using Explainable AI.
+                </p>
+
+            </div>
+
+            <div class="upload-wrapper glass">
+
+                <div id="dropArea" class="drop-area">
+
+                    <input
+                        type="file"
+                        id="fileInput"
+                        hidden
+                        accept=".jpg,.jpeg,.png">
+
+                    <div class="upload-content">
+
+                        <div class="upload-icon">
+                            <i class="fas fa-cloud-upload-alt"></i>
+                        </div>
+
+                        <h3>
+                            Drag & Drop X-Ray Image
+                        </h3>
+
+                        <p>
+                            JPG, JPEG or PNG
+                        </p>
+
+                        <button
+                            class="btn btn-primary"
+                            id="browseBtn">
+
+                            Browse Files
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+                <!-- Preview -->
+
+                <div
+                    id="previewContainer"
+                    class="preview-container hidden">
+
+                    <div class="preview-header">
+
+                        <h4>Selected Image</h4>
+
+                        <button
+                            id="removeImage"
+                            class="remove-btn">
+
+                            <i class="fas fa-times"></i>
+
+                        </button>
+
+                    </div>
+
+                    <img
+                        id="previewImage"
+                        src=""
+                        alt="Preview">
+
+                </div>
+
+                <!-- Analyze Button -->
+
+                <div class="analyze-wrapper">
+
+                    <button
+                        id="analyzeBtn"
+                        class="btn btn-analyze">
+
+                        <i class="fas fa-microscope"></i>
+                        Analyze X-Ray
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- ===================================== -->
+    <!-- AI Pipeline -->
+    <!-- ===================================== -->
+
+    <section class="pipeline-section"
+        id="pipeline">
+
+        <div class="container">
+
+            <div class="section-header">
+
+                <span class="section-tag">
+                    AI Workflow
+                </span>
+
+                <h2>
+                    Explainable AI Pipeline
+                </h2>
+
+            </div>
+
+            <div class="pipeline-grid">
+
+                <div class="pipeline-card glass">
+
+                    <i class="fas fa-upload"></i>
+
+                    <h3>
+                        Upload X-Ray
+                    </h3>
+
+                </div>
+
+                <div class="connector"></div>
+
+                <div class="pipeline-card glass">
+
+                    <i class="fas fa-brain"></i>
+
+                    <h3>
+                        Prediction Pipeline
+                    </h3>
+
+                </div>
+
+                <div class="connector"></div>
+
+                <div class="pipeline-card glass">
+
+                    <i class="fas fa-chart-line"></i>
+
+                    <h3>
+                        Classification
+                    </h3>
+
+                </div>
+
+                <div class="connector"></div>
+
+                <div class="pipeline-card glass">
+
+                    <i class="fas fa-fire"></i>
+
+                    <h3>
+                        Grad-CAM
+                    </h3>
+
+                </div>
+
+                <div class="connector"></div>
+
+                <div class="pipeline-card glass">
+
+                    <i class="fas fa-check-circle"></i>
+
+                    <h3>
+                        Explainable Result
+                    </h3>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- ===================================== -->
+    <!-- Loading Section -->
+    <!-- ===================================== -->
+
+    <section
+        id="loadingSection"
+        class="loading-section hidden">
+
+        <div class="container">
+
+            <div class="loading-card glass">
+
+                <div class="spinner"></div>
+
+                <h2>
+                    Analyzing Chest X-Ray...
+                </h2>
+
+                <div class="progress-wrapper">
+
+                    <div id="progressBar"
+                        class="progress-bar">
+                    </div>
+
+                </div>
+
+                <ul class="loading-steps">
+
+                    <li>
+                        <span class="step-icon">
+                            ✓
+                        </span>
+                        Uploading Image
+                    </li>
+
+                    <li>
+                        <span class="step-icon">
+                            ✓
+                        </span>
+                        Running AI Model
+                    </li>
+
+                    <li>
+                        <span class="step-icon">
+                            ✓
+                        </span>
+                        Detecting Pneumonia
+                    </li>
+
+                    <li>
+                        <span class="step-icon">
+                            ✓
+                        </span>
+                        Generating Grad-CAM
+                    </li>
+
+                    <li>
+                        <span class="step-icon">
+                            ✓
+                        </span>
+                        Preparing Results
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- ===================================== -->
+    <!-- Results Section -->
+    <!-- ===================================== -->
+
+    <section
+        id="results"
+        class="results-section hidden">
+
+        <div class="container">
+
+            <div class="section-header">
+
+                <span class="section-tag">
+
+                    AI Results
+
+                </span>
+
+                <h2>
+                    Prediction Results
+                </h2>
+
+            </div>
+
+            <div class="results-grid">
+
+                <!-- Prediction -->
+
+                <div
+                    id="predictionCard"
+                    class="result-card glass">
+
+                    <div class="result-icon">
+
+                        <i class="fas fa-heartbeat"></i>
+
+                    </div>
+
+                    <h3>
+                        Prediction
+                    </h3>
+
+                    <div
+                        id="predictionText"
+                        class="prediction-text">
+
+                        --
+
+                    </div>
+
+                </div>
+
+                <!-- Confidence -->
+
+                <div
+                    class="result-card glass">
+
+                    <div class="result-icon">
+
+                        <i class="fas fa-chart-pie"></i>
+
+                    </div>
+
+                    <h3>
+                        Confidence Score
+                    </h3>
+
+                    <div
+                        id="confidenceValue"
+                        class="confidence-value">
+
+                        0%
+
+                    </div>
+
+                    <div class="confidence-wrapper">
+
+                        <div
+                            id="confidenceBar"
+                            class="confidence-bar">
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- ===================================== -->
+    <!-- Comparison Section -->
+    <!-- ===================================== -->
+
+    <section
+        id="comparisonSection"
+        class="comparison-section hidden">
+
+        <div class="container">
+
+            <div class="section-header">
+
+                <span class="section-tag">
+
+                    Explainable AI
+
+                </span>
+
+                <h2>
+
+                    Image Comparison
+
+                </h2>
+
+            </div>
+
+            <div class="comparison-grid">
+
+                <!-- Original -->
+
+                <div class="image-card glass">
+
+                    <div class="image-header">
+
+                        <h3>
+                            Original X-Ray
+                        </h3>
+
+                        <button
+                            class="download-btn"
+                            id="downloadOriginal">
+
+                            <i class="fas fa-download"></i>
+
+                        </button>
+
+                    </div>
+
+                    <img
+                        id="originalImage"
+                        src=""
+                        alt="Original">
+
+                </div>
+
+                <!-- Heatmap -->
+
+                <div class="image-card glass">
+
+                    <div class="image-header">
+
+                        <h3>
+                            Grad-CAM Heatmap
+                        </h3>
+
+                        <button
+                            class="download-btn"
+                            id="downloadHeatmap">
+
+                            <i class="fas fa-download"></i>
+
+                        </button>
+
+                    </div>
+
+                    <img
+                        id="heatmapImage"
+                        src=""
+                        alt="Heatmap">
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- ===================================== -->
+    <!-- Modal -->
+    <!-- ===================================== -->
+
+    <div
+        id="imageModal"
+        class="modal">
+
+        <span
+            id="closeModal"
+            class="close-modal">
+
+            &times;
+
+        </span>
+
+        <img
+            id="modalImage"
+            class="modal-content">
+
+    </div>
+
+    <!-- ===================================== -->
+    <!-- Toast Container -->
+    <!-- ===================================== -->
+
+    <div
+        id="toastContainer"
+        class="toast-container">
+
+    </div>
+
+    <!-- ===================================== -->
+    <!-- Footer -->
+    <!-- ===================================== -->
+
+    <footer class="footer">
+
+        <div class="container">
+
+            <p>
+
+                © 2026 AI Pneumonia Detection System
+                | Powered by ResNet18 + Grad-CAM
+
+            </p>
+
+        </div>
+
+    </footer>
+
+    <!-- JS -->
+
+    <script
+        src="{{ url_for('static', filename='js/script.js') }}">
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,21 @@
+# Dataset
+dataset/
+
+# Python
+__pycache__/
+*.pyc
+
+# Virtual Environment
+mvenv/
+venv/
+
+# Models
+artifacts/
+models/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Logs
+logs/
+*.log

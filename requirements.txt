@@ -1,0 +1,82 @@
+# =========================
+# Deep Learning Framework
+# =========================
+
+torch               # PyTorch: build and train DenseNet121 model
+torchvision         # Pretrained models, image transforms, datasets
+
+# =========================
+# Medical Imaging
+# =========================
+
+torchxrayvision     # Pretrained chest X-ray models and utilities
+
+# =========================
+# Data Handling
+# =========================
+
+numpy               # Numerical operations on arrays/tensors
+pandas              # Read CSV label files and metadata
+
+# =========================
+# Image Processing
+# =========================
+
+opencv-python       # Image loading and preprocessing
+Pillow              # Image manipulation and format handling
+
+# =========================
+# Data Augmentation
+# =========================
+
+albumentations      # Random flips, rotations, brightness changes
+
+# =========================
+# Evaluation Metrics
+# =========================
+
+scikit-learn        # AUC, F1-score, confusion matrix
+
+# =========================
+# Visualization
+# =========================
+
+matplotlib          # Plot loss curves and results
+
+# =========================
+# Training Utilities
+# =========================
+
+tqdm                # Training progress bars
+
+# =========================
+# Experiment Tracking
+# =========================
+
+tensorboard         # Monitor loss and accuracy during training
+
+# =========================
+# Notebook Environment
+# =========================
+
+jupyter             # Run notebooks locally
+ipykernel           # Jupyter kernel support
+
+
+
+
+
+
+
+
+
+# backend
+flask>=3.0.0
+flask-cors>=4.0.0
+werkzeug>=3.0.0
+torch>=2.0.0
+torchvision>=0.15.0
+opencv-python>=4.8.0
+Pillow>=10.0.0
+numpy>=1.24.0
+scikit-learn>=1.3.0
