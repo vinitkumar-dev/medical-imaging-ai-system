@@ -24,7 +24,7 @@ pandas              # Read CSV label files and metadata
 
 opencv-python       # Image loading and preprocessing
 Pillow              # Image manipulation and format handling
-
+pytorch-grad-cam
 # =========================
 # Data Augmentation
 # =========================
